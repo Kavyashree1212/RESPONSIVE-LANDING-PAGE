@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillCraft | Responsive Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0a0a23, #1a1a3d);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 30, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+
+    header.scrolled {
+      background: rgba(10, 10, 30, 1);
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #00f0ff;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 30px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00f0ff;
+    }
+
+    section {
+      padding: 100px 40px;
+      min-height: 100vh;
+    }
+
+    #hero {
+      background: radial-gradient(circle at top left, #1a1a3d, #0a0a23);
+      text-align: center;
+      position: relative;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 100px;
+      left: 30px;
+      width: 120px;
+      height: 120px;
+      background-image: radial-gradient(#00f0ff 1px, transparent 1px);
+      background-size: 10px 10px;
+      opacity: 0.1;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00f0ff;
+      margin-bottom: 20px;
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      color: #ccccff;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #00f0ff;
+      color: #000;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #00c0cc;
+    }
+
+    #features {
+      background: #111127;
+    }
+
+    .feature {
+      margin-bottom: 30px;
+    }
+
+    .feature h3 {
+      color: #00f0ff;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    #contact textarea {
+      resize: vertical;
+    }
+
+    #contact-response {
+      text-align: center;
+      color: #00f0ff;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #080818;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 10px 0 0;
+      }
+
+      #hero h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <div class="logo">SkillCraft</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center; padding-top: 60px;">
+      <h1>RESPONSIVE LANDING PAGE</h1>
+      <p>Crafted to impress, this responsive landing page delivers seamless user experience, futuristic visuals, and adaptability across all devices a perfect digital front for your creative web projects.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2 style="text-align: center; margin-bottom: 40px;">Features</h2>
+    <div class="feature">
+      <h3>⚡ Lightning Fast</h3>
+      <p>Optimized for performance with minimal load times and smooth scrolling.</p>
+    </div>
+    <div class="feature">
+      <h3>📱 Fully Responsive</h3>
+      <p>Flawless experience on mobile, tablet, and desktop screens.</p>
+    </div>
+    <div class="feature">
+      <h3>🎨 Modern Design</h3>
+      <p>Dark theme with gradient and neon accents for a futuristic look.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align: center; margin-bottom: 10px;">Get in Touch</h2>
+    <p style="text-align: center; margin-bottom: 30px;">For feedback or collaboration opportunities, reach out to SkillCraft Technology.</p>
+    <form style="max-width: 500px; margin: 0 auto;" onsubmit="handleContactSubmit(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required rows="5"></textarea>
+      <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+    </form>
+    <p id="contact-response"></p>
+  </section>
+
+  <footer>
+    © 2025 SkillCraft Technology. All rights reserved.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById("contact-response").textContent =
+        "Thank you! We'll get back to you shortly.";
+    }
+  </script>
+</body>
+</html>
